@@ -24,6 +24,7 @@
   <li><a href="#home" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
   <li><a href="#about" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
   <li><a href="#projects" class="nav-link"><i class="fas fa-code"></i><span>Projects</span></a></li>
+  <li><a href="resume.pdf" class="nav-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i><span>Resume</span></a></li>
   <li><a href="#connect" class="nav-link"><i class="fas fa-envelope"></i><span>Connect</span></a></li>
 </ul>
 </nav>
@@ -32,24 +33,33 @@
   <div class="hero-left">
     <h3 class="hi-text">Hi,I am</h3><h1 class="main-name">Bhagyashree Kulkarni</h1>
     
-    <h2>A Python Full Stack Developer with Data Analyst</h2>
+    <h2><span id="typing"></span></h2>
 
     <div class="buttons">
+
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=madduravkulkarni@gmail.com" target="_blank" class="btn">
     <i class="fas fa-envelope"></i> Email
   </a>
 
-  <a href="https://github.com/Madduravkulkarni" target="_blank" class="btn">
+  <a href="https://github.com/Madduravkulkarni/" target="_blank" class="btn" rel="noopener noreferrer">
     <i class="fab fa-github"></i> GitHub
   </a>
 
-  <a href="https://linkedin.com/in/bhagyashree-kulkarni-51816527a" target="_blank" class="btn">
+  <a href="https://www.linkedin.com/in/bhagyashree-kulkarni-51816527a" target="_blank" class="btn" rel="noopener noreferrer">
     <i class="fab fa-linkedin"></i> LinkedIn
   </a>
 
-  <a href="C:\Users\abc\Desktop\portfolio BMK\BMK resume (1).pdf" target="_blank" class="btn">
-  <i class="fas fa-file"></i> Resume
-</a>
+  <div class="resume-buttons">
+    <a href="resume.pdf" target="_blank" class="btn view-btn">
+      <i class="fas fa-eye"></i> View Resume
+    </a>
+
+    <a href="resume.pdf" download class="btn download-btn">
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+  </div>
+
+</div>
 </div>
 
     <!-- Slider -->
@@ -65,7 +75,7 @@
   </div>
 
   <div class="hero-right">
-    <img src="C:\Users\abc\Desktop\portfolio BMK\images\port img.png" class="profile-pic">
+    <img src="images/profile.png" class="profile-pic">
   </div>
 </section>
 
@@ -73,10 +83,13 @@
  <section class="section animate" id="about">
   <h2>About Me</h2>
 
-  <div class="card about-card">
+  <center><div class="card about-card">
     <p>
-      Motivated fresher with a strong interest in the IT industry. Skilled in Python Full Stack Development, including HTML, CSS, JavaScript, and SQL. Passionate about learning new technologies and building efficient applications.
-    </p>
+I am a Computer Science and Design graduate with hands-on experience in Python Full Stack Development. 
+I have worked on real-time projects like E-Canteen Management System and Student Information System, 
+with strong knowledge of HTML, CSS, JavaScript, Python, and SQL. 
+I also have basic understanding of Django, DSA, and OOP concepts and a keen interest in building scalable web applications.
+</p>
 
     <h3>Education</h3>
 
@@ -84,7 +97,7 @@
     <p>Poojya Doddappa Appa College of Engineering, Gulbarga</p>
     <p>(Autonomous, Affiliated to VTU)</p>
     <p>2021 – 2025 | CGPA: 8.03</p>
-  </div>
+  </div></center>
 </section>
 
 <!-- Skills -->
@@ -98,6 +111,7 @@
     <div class="skill-card"><i class="fas fa-database sql"></i><p>SQL</p></div>
     <div class="skill-card"><i class="fas fa-file-excel excel"></i><p>Excel</p></div>
   </div>
+  
 </section>
 
 <!-- Projects -->
@@ -302,7 +316,6 @@ function showProject(project) {
     </div>
   </div>
 
-  <
   `;
 }
 details.style.display = "block";
@@ -319,7 +332,24 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
+const contactButton = document.querySelector(".contact-box button");
+if (contactButton) {
+  contactButton.addEventListener("click", () => {
+    const name = document.querySelector(".contact-box input[type=text]").value.trim();
+    const email = document.querySelector(".contact-box input[type=email]").value.trim();
+    const message = document.querySelector(".contact-box textarea").value.trim();
+    if (!name || !email || !message) {
+      alert("Please enter your name, email, and message.");
+      return;
+    }
+    const subject = encodeURIComponent("Message from " + name);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:madduravkulkarni@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
+
 </script>
+<!-- ================= PROJECT MODAL ================= -->
 
 </body>
 </html>
